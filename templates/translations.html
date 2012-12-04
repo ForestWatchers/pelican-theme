@@ -1,0 +1,15 @@
+{% macro translations_for(article) %}
+{% if article.translations %}
+<ul class="breadcrumb">
+    <li class="active"><i class="icon-flag"></i> Translations <i class="icon-chevron-right"></i></li>
+{% for translation in article.translations %}
+<li>
+    <a href="{{ SITEURL }}/{{ translation.url }}">{{ translation.lang }}</a>
+    {% if not loop.last %}
+    <span class="divider">|</span>
+    {% endif %}
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endmacro %}

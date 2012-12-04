@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="span12">
+        <h1>All articles</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="span12">
+        <ul class="thumbnails">
+        {% for article in articles_page.object_list %}
+            <li class="span6">
+            <div class="thumbnail article">
+                    <div>
+                    <small class="pull-right muted"><i class="icon-calendar"></i> Posted: <abbr class="published"> {{ article.locale_date }} </abbr></small>
+                    </div>
+                    <div class="caption {% if not loop.first %} old {% endif %} ">
+                        <h3><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a> </h3>
+                    {{ article.summary }}
+                    <p><a class="{% if loop.first %} btn btn-inverse {% endif %}" href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">Read more &raquo; </i></a>
+                    </p>
+                    </div>
+            </div>
+            </li>
+    {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% include 'pagination.html' %}
+{% endblock %}

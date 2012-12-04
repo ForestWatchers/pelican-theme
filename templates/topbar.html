@@ -1,0 +1,32 @@
+{% block topbar %}
+    <div class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="{{ SITEURL }}">
+            {{ SITENAME }}
+          </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                {% for p in pages | sort(attribute='filename') %}
+                <li {% if p == page %} class="active" {% endif %}>
+                    <a href="{{SITEURL}}/{{p.url}}">
+                        {% if p.icon %}
+                        <i class="{{p.icon}}"></i>
+                        {% endif %}
+                        {{p.title}}
+                    </a>
+                </i>
+                {% endfor %}
+                <li {% if active_page == 'pybossa' %}class="active" {% endif %}><a href="{{SITEURL}}/pybossa"><i class="icon icon-white icon-globe"></i> Contribute</a></li>
+                <li {% if active_page == 'blog' %}class="active" {% endif %}><a href="{{ SITEURL }}/blog"><i class="icon icon-white icon-comment"></i> Blog</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+{% endblock %}

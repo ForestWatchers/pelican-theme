@@ -1,0 +1,27 @@
+<div id="videocontainer">
+    <div id="video">
+        <div style="text-align:center; padding:20px">
+            <a href="#" class="btn btn-warning btn-large" onclick="closeVideo()"><i class="icon icon-white icon-remove"></i> Close video</a>
+        </div>
+
+        <script type="text/javascript" src="http://s3.amazonaws.com/s3.www.universalsubtitles.org/embed.js">
+            (
+                {"video_url": "http://www.youtube.com/watch?v=eXMlCWmCzEs&enablejsapi=1",
+                    'video_config': {
+                        'playerapiid': 'amarayoutube',
+                    }
+        }
+        )
+        </script>
+    </div>
+</div>
+<script>
+    function showVideo() {
+        $("#videocontainer").show();
+    }
+    function closeVideo() {
+        $("#videocontainer").hide();
+
+    }
+</script>
+
