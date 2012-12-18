@@ -14,7 +14,7 @@
             <ul class="nav">
                 {% for p in pages | sort(attribute='filename') %}
                 <li {% if p == page %} class="active" {% endif %}>
-                    <a href="{{SITEURL}}/{{p.url}}">
+                    <a href="{{p.url}}">
                         {% if p.icon %}
                         <i class="{{p.icon}}"></i>
                         {% endif %}
@@ -24,6 +24,7 @@
                 {% endfor %}
                 <li {% if active_page == 'pybossa' %}class="active" {% endif %}><a href="{{SITEURL}}/pybossa"><i class="icon icon-white icon-globe"></i> Contribute</a></li>
                 <li {% if active_page == 'blog' %}class="active" {% endif %}><a href="{{ SITEURL }}/blog"><i class="icon icon-white icon-comment"></i> Blog</a></li>
+                <li {% if active_page == 'stats' %}class="active" {% endif %}><a href="{{ SITEURL }}/stats"><i class="icon icon-white icon-dashboard"></i> Stats</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
